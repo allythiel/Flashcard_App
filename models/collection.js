@@ -10,3 +10,16 @@ const Collection = mongoose.model('Collection', collectionSchema);
 
 
 module.exports = Collection;
+
+function validateCollection(collection) {
+    const scheme = Joi.object({
+        term: Joi.string().min(2).max(50).required(),
+        description: Joi.string().require(),
+    });
+    return schema.validate(collection);
+}
+
+
+module.exports = Collection;
+exports.Validate = validateCollection;
+exports.collectionSchema = collectionSchema;
