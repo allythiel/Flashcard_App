@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/allythiel/Flashcard_App#readme",
   "dependencies": {
+    "config": "^3.3.6",
     "express": "^4.17.1",
     "mongoose": "^5.13.0",
     "nodemon": "^2.0.8"
