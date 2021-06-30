@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Joi = require('joi');
 
 const collectionSchema = new mongoose.Schema({
     term: { type: String, required: true, minlength: 2, maxlength: 100 },
@@ -8,18 +9,15 @@ const collectionSchema = new mongoose.Schema({
 
 const Collection = mongoose.model('Collection', collectionSchema);
 
-
-module.exports = Collection;
-
 function validateCollection(collection) {
-    const scheme = Joi.object({
+    const schema = Joi.object({
         term: Joi.string().min(2).max(50).required(),
-        description: Joi.string().require(),
+        description: Joi.string().required(),
     });
     return schema.validate(collection);
 }
 
 
-module.exports = Collection;
-exports.Validate = validateCollection;
+exports.Collection = Collection;
+exports.validate = validateCollection;
 exports.collectionSchema = collectionSchema;
