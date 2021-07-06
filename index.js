@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const collections = require('./routes/collections');
 
+
 connectDB();
 
 app.use(express.json());
